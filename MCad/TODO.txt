@@ -1,0 +1,8 @@
+TODO:
+- Make gap for hinges larger, make switches higher
+- Make 3d model of power switch and add mounting point
+- Add 3d models for bumper springs and add mounting points
+- Add kerf offset
+- Chinese 1000 RPM motor has bad dimensions + may not be legit
+- Add skirt around bot base
+- Add holder for battery
