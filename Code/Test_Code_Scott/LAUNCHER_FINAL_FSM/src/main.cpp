@@ -14,6 +14,9 @@ Servo myservo;
 bool value = false;
 
 
+
+
+
 void setup() {
   Serial.begin(9600);
   pinMode(PIN_LAUNCHERTOP, OUTPUT);
@@ -37,12 +40,16 @@ void loop() {
   count_print = count_print+1;
   value = digitalRead(FIRE_INPUT);
 
-  analogWrite(PIN_LAUNCHERTOP, 200);
-  analogWrite(PIN_LAUNCHERBOTTOM, 200);
   if(value) {
+      analogWrite(PIN_LAUNCHERTOP, 200);
+      analogWrite(PIN_LAUNCHERBOTTOM, 200);
+      delay(2000);
       myservo.write(180);
+
   }
   else {
+    analogWrite(PIN_LAUNCHERTOP, 0);
+    analogWrite(PIN_LAUNCHERBOTTOM, 0);
     myservo.write(0);
   }
 

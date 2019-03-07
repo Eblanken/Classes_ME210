@@ -72,7 +72,7 @@ int FIRE_TIME = 5E3;
 static Metro fireTimer = Metro(FIRE_TIME);
 
 
-int SOUTH_TIME = 4E3;
+int SOUTH_TIME = 3700;
 
 static Metro southTimer = Metro(SOUTH_TIME);
 
