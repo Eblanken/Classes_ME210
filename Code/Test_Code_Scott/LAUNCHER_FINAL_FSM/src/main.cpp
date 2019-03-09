@@ -5,9 +5,9 @@
 #define PIN_LAUNCHERBOTTOM  23
 
 
-#define FIRE_INPUT 17
+#define FIRE_INPUT 16
 
-#define SERVO_PIN 21
+#define SERVO_PIN 3
 
 Servo myservo;
 

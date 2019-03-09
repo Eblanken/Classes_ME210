@@ -234,15 +234,15 @@ void loop() {
  void checkGlobalEvents(void) {
 
 
-   if( (south && !west)|| (south && east) )  {
-     state  = STATE_MOVE_WEST;
-   } else if ( (west && !north )|| (west && south) ) {
-      state  = STATE_MOVE_NORTH;
-   } else if ( (north && !east) || (north && west) )  {
-      state  = STATE_MOVE_EAST;
-   } else if ((east && !south)|| (north && east) ) {
-      state  = STATE_MOVE_SOUTH; 
-   } 
+  //  if( (south && !west)|| (south && east) )  {
+  //    state  = STATE_MOVE_WEST;
+  //  } else if ( (west && !north )|| (west && south) ) {
+  //     state  = STATE_MOVE_NORTH;
+  //  } else if ( (north && !east) || (north && west) )  {
+  //     state  = STATE_MOVE_EAST;
+  //  } else if ((east && !south)|| (north && east) ) {
+  //     state  = STATE_MOVE_SOUTH; 
+  //  } 
    
 
  }
