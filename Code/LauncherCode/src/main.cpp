@@ -22,11 +22,11 @@
 /*--------------------------------- Constants --------------------------------*/
 
 #define PIN_LED             13
-#define PIN_SERVO           20
+#define PIN_SERVO           3
 #define PIN_LAUNCHERTOP     23
 #define PIN_LAUNCHERBOTTOM  24
 #define PIN_SENSORTOP       21
-#define PIN_SENSORBOTTOM    19
+#define PIN_SENSORBOTTOM    20
 
 #define DEBUG_POTENTIOMETER_1 14
 #define DEBUG_POTENTIOMETER_2 15
@@ -169,8 +169,8 @@ void handleDebug() {
   Serial.print("Bottom:");
   Serial.print(latestTopRPS);
   fireServo.write((analogRead(DEBUG_POTENTIOMETER_1) * 180) / 1024);
-  analogWrite(PIN_LAUNCHERTOP, analogRead(DEBUG_POTENTIOMETER_2) / 4);
-  analogWrite(PIN_LAUNCHERBOTTOM, analogRead(DEBUG_POTENTIOMETER_3) / 4);
+  //analogWrite(PIN_LAUNCHERTOP, analogRead(DEBUG_POTENTIOMETER_2) / 4);
+  //analogWrite(PIN_LAUNCHERBOTTOM, analogRead(DEBUG_POTENTIOMETER_3) / 4);
 }
 
 void evaluateRequests(uint8_t bytes[], uint8_t bytesLength) {
