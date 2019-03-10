@@ -60,10 +60,12 @@ void loop() {
 
   if(servo_value) {
        myservo.write(180);
+       delay(3000);
+       myservo.write(0);
   }
-  else {
-     myservo.write(0);
-  }
+ 
+     
+
 
 
   
