@@ -41,6 +41,7 @@ IntervalTimer frequencyTimer_2;
 #define LED_PIN_1       0
 #define PIN_SIGNAL_IN_2 5
 #define LED_PIN_2       1
+#define OUTPUT_TO_MASTER 18
 
 #define PIN_MOTOR_1     22
 #define PIN_MOTOR_2     23
@@ -85,6 +86,9 @@ void setup() {
   pinMode(PIN_MOTOR_1, OUTPUT);
   pinMode(PIN_MOTOR_2, OUTPUT);
 
+  pinMode(OUTPUT_TO_MASTER, OUTPUT);
+  digitalWrite(OUTPUT_TO_MASTER, LOW);
+
   pinMode(LED_PIN_1, OUTPUT);
   pinMode(LED_PIN_2, OUTPUT);
   pinMode(PIN_SIGNAL_IN, INPUT);
@@ -108,20 +112,32 @@ void loop() {
 void handleMotorEvents() {
   bool hasTurnedOn = false;
   uint32_t currentTime = millis();
+    
+  // Measures limit switch
+  static uint16_t switchState = 0;
+  switchState = ((switchState << 1) | digitalRead(PIN_LIMITSWITCH));
+
+  // Makes sure tower is initially down
+  static bool isDown = false;
+  if(!isDown) {
+    if(switchState == 0xFFFF) {
+      isDown = true;
+    } else {
+      digitalWrite(PIN_MOTOR_1, LOW);
+      digitalWrite(PIN_MOTOR_2, HIGH);
+      hasTurnedOn = true;
+    }
+  }
 
   // Raises tower at beginning
-  if(currentTime < TIME_RAISE) {
+  if(currentTime < TIME_RAISE && !hasTurnedOn) {
     digitalWrite(PIN_MOTOR_1, HIGH);
     digitalWrite(PIN_MOTOR_2, LOW);
     hasTurnedOn = true;
   }
 
-  // Measures limit switch
-  static uint16_t switchState = 0;
-  switchState = ((switchState << 1) | digitalRead(PIN_LIMITSWITCH));
-
   // Lowers tower
-  if((currentTime > (TIME_ROUND - (TIME_SPARE + TIME_RAISE))) && (currentTime < TIME_ROUND) && (switchState != 0xFFFF)) {
+  if((currentTime > (TIME_ROUND - (TIME_SPARE + TIME_RAISE))) && (currentTime < TIME_ROUND) && (switchState != 0xFFFF) && !hasTurnedOn) {
     digitalWrite(PIN_MOTOR_1, LOW);
     digitalWrite(PIN_MOTOR_2, HIGH);
     hasTurnedOn = true;
@@ -144,6 +160,12 @@ void handleLEDEvents() {
     digitalWrite(LED_PIN_2, HIGH);
   } else {
     digitalWrite(LED_PIN_2, LOW);
+  }
+
+  if(freq_1_detected || freq_2_detected) {
+    digitalWrite(OUTPUT_TO_MASTER, HIGH);
+  } else {
+    digitalWrite(OUTPUT_TO_MASTER, LOW);
   }
 }
 
