@@ -160,6 +160,7 @@ void loop() {
 /*-------------------------------- FSM Functions -----------------------------*/
 
 void evaluateStates() {
+  checkEndGame();
   switch(currentState) {
     case STATE_IDLE:
       currentState = STATE_INIT_WEST;
@@ -200,9 +201,6 @@ void handleInitWest() {
     justTransitioned = true;
     currentState = STATE_ARMOURY_TO;
   }
-
-  checkEndGame();
-
 }
 
 void handleToArmoury() {
@@ -232,9 +230,6 @@ void handleToArmoury() {
       armouryEscapeTime = (uint16_t) ((float) totalTransferTime * armouryEscapeFraction);
     }
   }
-
-  // End of game
-  checkEndGame();
 }
 
 void handleReload() {
@@ -253,9 +248,6 @@ void handleReload() {
     hasFired         = false;
     currentState     = STATE_HUNTING_SOUTH;
   }
-
-  // End of game
-  checkEndGame();
 }
 
 void handleHuntSouth() {
@@ -277,13 +269,11 @@ void handleHuntSouth() {
     currentState = STATE_HUNTING_NORTH;
     justTransitioned = true;
   } else if(hasFired) {
+    cannonCooldown();
     hasFired         = false;
     justTransitioned = true;
     currentState     = STATE_ARMOURY_TO;
   }
-
-  // End of game
-  checkEndGame();
 }
 
 void handleHuntNorth() {
@@ -305,13 +295,11 @@ void handleHuntNorth() {
     currentState = STATE_HUNTING_SOUTH;
     justTransitioned = true;
   } else if(hasFired) {
+    cannonCooldown();
     hasFired         = false;
     justTransitioned = true;
     currentState     = STATE_ARMOURY_TO;
   }
-
-  // End of game
-  checkEndGame();
 }
 
 void handleDone() {
@@ -435,6 +423,7 @@ void bumperPoll() {
 void sensorISR() {
   if(fireEnabled) {
     cannonFire();
+    hasFired = true;
   }
 }
 
