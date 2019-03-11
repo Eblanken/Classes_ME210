@@ -85,17 +85,17 @@ int GAME_TIME = 130e3;
 
 static Metro gameTimer = Metro(GAME_TIME);
 
-int SOUTH_TIME = 4000;
+int SOUTH_TIME = 1500;
 
 static Metro southTimer = Metro(SOUTH_TIME);
 
-int SHOOT_OK = 700;
+int SHOOT_OK = 1000;
 
 static Metro shoot_ok_Timer = Metro(SOUTH_TIME);
 
 bool fired_shot = true;
 
-bool fire =false;
+bool safety_off =false;
 
 
 typedef enum {
@@ -158,6 +158,8 @@ void setup() {
   //Initial states for drive train and tower
   state = INIT_WEST;
 
+  attachInterrupt(digitalPinToInterrupt(PHOTO_SIGNAL_IN), edge_response, RISING);
+
 }
 
 void loop() {
@@ -182,14 +184,14 @@ void loop() {
   east =  digitalRead(east_pin);
   photo_in_1 = digitalRead(PHOTO_SIGNAL_IN);
 
-  //fire = (photo_in_1);
+  //safety_off = (photo_in_1);
   //int val_test = ok_to_shoot;
 
   if(count_print == 1000) {
     Serial.print("State = ");
     Serial.println(state);
-    Serial.print("Fire = ");
-    Serial.println(fire);
+    Serial.print("safety_off = ");
+    Serial.println(safety_off);
     Serial.print("fired = ");
     Serial.println(fired_shot);
     Serial.print("ok_to_shoot = ");
@@ -239,42 +241,28 @@ void loop() {
     case ARMORY_STATE:
       handleIdle();
       if(check_reload_expired()) {
-        state = OUT_ARMORY; //PREVIOUS STATE SOUTH
+        state = SOUTH; //PREVIOUS STATE SOUTH
         southTimer.reset();
-        shoot_ok_Timer.reset();
+        digitalWrite(OUTPUT_LAUNCHER_MOTOR, HIGH);
       }
       break;
-
-    case OUT_ARMORY:
-      handleMoveSouth();
-      hugWestWall();
-      digitalWrite(OUTPUT_LAUNCHER_MOTOR, HIGH);
-      if(check_shoot_ok_expired()){
-        state = SOUTH;
-      }
-    break;
-
 
     case SOUTH:
       handleMoveSouth();
       hugWestWall();
-      digitalWrite(OUTPUT_LAUNCHER_MOTOR, HIGH);
-      if(photo_in_1) {
-        state = FIRE_STATE;
-      } else if (check_south_expired()){
+       if (check_south_expired()){
         state = IDLE_STATE;
+        safety_off = true;
       }
-      
-
-      break;
+    break;
 
     case IDLE_STATE:
       handleIdle();
-      if (photo_in_1) {
-        state = FIRE_STATE;
-        fireTimer.reset();
+      if(!safety_off) { // Gun fired
+        delay(3000);
+        digitalWrite(OUTPUT_LAUNCHER_MOTOR, LOW);
+        state = NORTH;
       }
-
     break;
 
     case END_GAME:
@@ -283,18 +271,6 @@ void loop() {
       digitalWrite(OUTPUT_LAUNCHER_MOTOR, LOW);
 
     break;
-
-    case FIRE_STATE:
-      handleIdle();
-      digitalWrite(OUTPUT_SERVO, HIGH);
-      if(check_fire_expired()) {
-        //ok_to_shoot = false;
-        //fired_shot = true;
-        state = NORTH;
-        digitalWrite(OUTPUT_SERVO, LOW);
-        digitalWrite(OUTPUT_LAUNCHER_MOTOR, LOW);
-      }
-      break;
 
     default:    // Should never get into an unhandled state
       Serial.println("What is this I do not even...");
@@ -418,16 +394,10 @@ void hugWestWall(void) {
   }
 
  void edge_response(void) {
-   detachInterrupt(PHOTO_SIGNAL_IN);
-   if(digitalRead(PHOTO_SIGNAL_IN)) {
-      //rising edge
-       fire = true;
-   }
-   else {
-     //falling edge
-     fire = false;
-   }
-    
-  attachInterrupt(digitalPinToInterrupt(PHOTO_SIGNAL_IN), edge_response, CHANGE);
-   
+  if(safety_off) {
+    safety_off = false;
+    digitalWrite(OUTPUT_SERVO, HIGH);
+    delay(15);
+    digitalWrite(OUTPUT_SERVO, LOW);
+  }
  }
