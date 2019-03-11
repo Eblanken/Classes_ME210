@@ -48,7 +48,7 @@ IntervalTimer frequencyTimer_2;
 #define PIN_LIMITSWITCH 13
 //#define TIME_ROUND      (60 * 2 + 10) * 1E3 // Total round time (ms)
 #define TIME_ROUND      ((60 * 2 + 10) * 1E3)
-#define TIME_RAISE      (30 * 1E3)            // Time required to raise/lower tower
+#define TIME_RAISE      (10 * 1E3)            // Time required to raise/lower tower
 #define TIME_SPARE      5                     // Extra time to retract just in case
 
 char transmit_byte = 0x00;

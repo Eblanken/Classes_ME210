@@ -169,7 +169,7 @@ void loop() {
   photo_in_1 = digitalRead(PHOTO_SIGNAL_IN);
 
   //fire = (photo_in_1);
-  int val_test = ok_to_shoot;
+  //int val_test = ok_to_shoot;
 
   if(count_print == 1000) {
     Serial.print("State = ");
