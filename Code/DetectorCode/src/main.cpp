@@ -151,20 +151,12 @@ void handleMotorEvents() {
 }
 
 void handleLEDEvents() {
-  if (freq_1_detected) {
-    digitalWrite(LED_PIN_1, HIGH);
-  } else {
-    digitalWrite(LED_PIN_1, LOW);
-  }
+
   if (freq_2_detected) {
     digitalWrite(LED_PIN_2, HIGH);
-  } else {
-    digitalWrite(LED_PIN_2, LOW);
-  }
-
-  if(freq_1_detected || freq_2_detected) {
     digitalWrite(OUTPUT_TO_MASTER, HIGH);
   } else {
+    digitalWrite(LED_PIN_2, LOW);
     digitalWrite(OUTPUT_TO_MASTER, LOW);
   }
 }
@@ -222,7 +214,7 @@ void count_falling_edges_2(void) {
 void determine_frequency_1(void) {
   detachInterrupt(PIN_SIGNAL_IN);
   if (count_1 >= 80 && count_1 <= 200) {
-    freq_1_detected = true;
+    freq_1_detected = false;
     Serial.print("freq_1 = ");
     Serial.println(10*count_1);
     reported_duty_cycle_1 = (100*avg_duty_cycle_1)/100000;

@@ -303,8 +303,6 @@ void loop() {
       digitalWrite(PIN_WEST_MOTOR_2, 0);
   }
 
-  attachInterrupt(digitalPinToInterrupt(PHOTO_SIGNAL_IN), edge_response, CHANGE);
-
 }
 
 
