@@ -1,0 +1,48 @@
+/*
+ * File: FSM
+ * --------------
+ * Erick Blankenberg
+ * ME210
+ * 3/14/2019
+ * Final Project
+ *
+ * Description:
+ * 	Creates illustration for master FSM
+ */
+
+ game_running {
+   // State definitions
+   init_west:
+      Starts game timer on entry.
+      Hugs south wall moves to west wall.,
+   armory_going:
+      Hugs west wall moves north to armoury.
+      Resets reload timer on exit.,
+   armory_reload:
+      Waits for end of reload timer.
+      Starts launcher spoolup and
+      movement timer on exit.,
+   armory_leaving:
+      Hugs west wall moves south until movemment timer ends.
+      Turns off launcher lock for sensor ISR to fire on exit.,
+   idle:
+      Waits until shots fired by ISR.
+      Turns on launcner lock on exit.;
+   // Defines connections
+   init_west => armory_going:
+      Hit West Boundary;
+   armory_going => armory_reload:
+      Hit North Boundary;
+   armory_reload => armory_leaving:
+      Reload Timer Expired;
+   armory_leaving => idle:
+      Movement Timer Expired;
+   idle => armory_going:
+      Weapon Fired by ISR;
+ };
+
+// External connections
+initial => init_west:
+  Powered on;
+game_running => final:
+  Game timer elapsed;

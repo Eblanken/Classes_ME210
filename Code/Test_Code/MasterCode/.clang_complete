@@ -108,9 +108,9 @@
 -I/Users/ANoSenseSolution/.platformio/packages/toolchain-gccarmnoneeabi/lib/gcc/arm-none-eabi/5.4.1/include
 -I/Users/ANoSenseSolution/.platformio/packages/toolchain-gccarmnoneeabi/lib/gcc/arm-none-eabi/5.4.1/include-fixed
 -I/Users/ANoSenseSolution/.platformio/packages/tool-unity
--I/Users/ANoSenseSolution/Desktop/Junior_Year/Winter_Quarter/ME210/PROJECT/Classes_ME210/Code/ALPHA_FSM/include
--I/Users/ANoSenseSolution/Desktop/Junior_Year/Winter_Quarter/ME210/PROJECT/Classes_ME210/Code/ALPHA_FSM/src
--DPLATFORMIO=30605
+-I/Users/ANoSenseSolution/Desktop/Junior_Year/Winter_Quarter/ME210/PROJECT/Classes_ME210/Code/MasterCode/include
+-I/Users/ANoSenseSolution/Desktop/Junior_Year/Winter_Quarter/ME210/PROJECT/Classes_ME210/Code/MasterCode/src
+-DPLATFORMIO=30604
 -D__MKL26Z64__
 -DTEENSYLC
 -DUSB_SERIAL

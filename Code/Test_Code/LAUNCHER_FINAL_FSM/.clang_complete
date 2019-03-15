@@ -1,5 +1,5 @@
 -I/Users/ANoSenseSolution/.platformio/packages/framework-arduinoteensy/cores/teensy3
--I/Users/ANoSenseSolution/.platformio/packages/framework-arduinoteensy/libraries/Metro
+-I/Users/ANoSenseSolution/.platformio/packages/framework-arduinoteensy/libraries/Servo
 -I/Users/ANoSenseSolution/.platformio/lib/SdFat_ID322/src
 -I/Users/ANoSenseSolution/.platformio/packages/framework-arduinoteensy/libraries/ADC
 -I/Users/ANoSenseSolution/.platformio/packages/framework-arduinoteensy/libraries/AccelStepper/src
@@ -52,6 +52,7 @@
 -I/Users/ANoSenseSolution/.platformio/packages/framework-arduinoteensy/libraries/LowPower
 -I/Users/ANoSenseSolution/.platformio/packages/framework-arduinoteensy/libraries/MFRC522/src
 -I/Users/ANoSenseSolution/.platformio/packages/framework-arduinoteensy/libraries/MIDI/src
+-I/Users/ANoSenseSolution/.platformio/packages/framework-arduinoteensy/libraries/Metro
 -I/Users/ANoSenseSolution/.platformio/packages/framework-arduinoteensy/libraries/MsTimer2
 -I/Users/ANoSenseSolution/.platformio/packages/framework-arduinoteensy/libraries/NXPMotionSense
 -I/Users/ANoSenseSolution/.platformio/packages/framework-arduinoteensy/libraries/NXPMotionSense/utility
@@ -73,7 +74,6 @@
 -I/Users/ANoSenseSolution/.platformio/packages/framework-arduinoteensy/libraries/ST7565
 -I/Users/ANoSenseSolution/.platformio/packages/framework-arduinoteensy/libraries/ST7735_t3
 -I/Users/ANoSenseSolution/.platformio/packages/framework-arduinoteensy/libraries/SerialFlash
--I/Users/ANoSenseSolution/.platformio/packages/framework-arduinoteensy/libraries/Servo
 -I/Users/ANoSenseSolution/.platformio/packages/framework-arduinoteensy/libraries/ShiftPWM
 -I/Users/ANoSenseSolution/.platformio/packages/framework-arduinoteensy/libraries/Snooze
 -I/Users/ANoSenseSolution/.platformio/packages/framework-arduinoteensy/libraries/Snooze/utility
@@ -108,8 +108,8 @@
 -I/Users/ANoSenseSolution/.platformio/packages/toolchain-gccarmnoneeabi/lib/gcc/arm-none-eabi/5.4.1/include
 -I/Users/ANoSenseSolution/.platformio/packages/toolchain-gccarmnoneeabi/lib/gcc/arm-none-eabi/5.4.1/include-fixed
 -I/Users/ANoSenseSolution/.platformio/packages/tool-unity
--I/Users/ANoSenseSolution/Desktop/Junior_Year/Winter_Quarter/ME210/PROJECT/Classes_ME210/Code/ALPHA_FSM/include
--I/Users/ANoSenseSolution/Desktop/Junior_Year/Winter_Quarter/ME210/PROJECT/Classes_ME210/Code/ALPHA_FSM/src
+-I/Users/ANoSenseSolution/Desktop/Junior_Year/Winter_Quarter/ME210/PROJECT/Classes_ME210/Code/Test_Code_Scott/LAUNCHER_FINAL_FSM/include
+-I/Users/ANoSenseSolution/Desktop/Junior_Year/Winter_Quarter/ME210/PROJECT/Classes_ME210/Code/Test_Code_Scott/LAUNCHER_FINAL_FSM/src
 -DPLATFORMIO=30605
 -D__MKL26Z64__
 -DTEENSYLC
