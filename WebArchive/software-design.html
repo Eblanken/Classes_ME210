@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Software Design - TEAM 7</title>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		
+		<link id="wsite-base-style" rel="stylesheet" type="text/css" href="http://cdn2.editmysite.com/css/sites.css?buildTime=1234" />
+<link rel="stylesheet" type="text/css" href="http://cdn2.editmysite.com/css/old/fancybox.css?1234" />
+<link rel="stylesheet" type="text/css" href="http://cdn2.editmysite.com/css/social-icons.css?buildtime=1234" media="screen,projection" />
+<link rel="stylesheet" type="text/css" href="files/main_style.css?1552705420" title="wsite-theme-css" />
+
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<style type='text/css'>
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) div.paragraph, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) p, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-block .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-description, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, #wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {font-family:"Montserrat" !important;}
+#wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {color:#818181 !important;}
+.wsite-elements.wsite-footer div.paragraph, .wsite-elements.wsite-footer p, .wsite-elements.wsite-footer .product-block .product-title, .wsite-elements.wsite-footer .product-description, .wsite-elements.wsite-footer .wsite-form-field label, .wsite-elements.wsite-footer .wsite-form-field label{font-family:"Montserrat" !important;}
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) h2, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-long .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-large .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-small .product-title, #wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {font-family:"Montserrat" !important;font-weight:700 !important;letter-spacing: 0px !important;}
+#wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+.wsite-elements.wsite-footer h2, .wsite-elements.wsite-footer .product-long .product-title, .wsite-elements.wsite-footer .product-large .product-title, .wsite-elements.wsite-footer .product-small .product-title{font-family:"Montserrat" !important;font-weight:400 !important;}
+#wsite-title {font-family:"Montserrat" !important;font-weight: bold !important;}
+.wsite-menu-default a {}
+.wsite-menu a {}
+.wsite-image div, .wsite-caption {}
+.galleryCaptionInnerText {}
+.fancybox-title {}
+.wslide-caption-text {}
+.wsite-phone {}
+.wsite-headline,.wsite-header-section .wsite-content-title {font-family:"Montserrat" !important;font-weight:700 !important;letter-spacing: 1px !important;}
+.wsite-headline-paragraph,.wsite-header-section .paragraph {font-family:"Lora" !important;font-weight:400 !important;text-transform:  none !important;}
+.wsite-button-inner {}
+.wsite-not-footer blockquote {font-family:"Lora" !important;}
+.wsite-footer blockquote {}
+.blog-header h2 a {}
+#wsite-content h2.wsite-product-title {}
+.wsite-product .wsite-product-price a {}
+@media screen and (min-width: 767px) {.wsite-elements.wsite-not-footer:not(.wsite-header-elements) div.paragraph, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) p, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-block .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-description, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, #wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {font-size:16px !important;line-height:30px !important;}
+#wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
+.wsite-elements.wsite-footer div.paragraph, .wsite-elements.wsite-footer p, .wsite-elements.wsite-footer .product-block .product-title, .wsite-elements.wsite-footer .product-description, .wsite-elements.wsite-footer .wsite-form-field label, .wsite-elements.wsite-footer .wsite-form-field label{font-size:13px !important;}
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) h2, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-long .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-large .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-small .product-title, #wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {font-size:30px !important;line-height:21px !important;}
+#wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+.wsite-elements.wsite-footer h2, .wsite-elements.wsite-footer .product-long .product-title, .wsite-elements.wsite-footer .product-large .product-title, .wsite-elements.wsite-footer .product-small .product-title{font-size:11px !important;}
+#wsite-title {font-size:18px !important;}
+.wsite-menu-default a {}
+.wsite-menu a {}
+.wsite-image div, .wsite-caption {}
+.galleryCaptionInnerText {}
+.fancybox-title {}
+.wslide-caption-text {}
+.wsite-phone {}
+.wsite-headline,.wsite-header-section .wsite-content-title {font-size:90px !important;}
+.wsite-headline-paragraph,.wsite-header-section .paragraph {}
+.wsite-button-inner {}
+.wsite-not-footer blockquote {font-size:30px !important;}
+.wsite-footer blockquote {}
+.blog-header h2 a {}
+#wsite-content h2.wsite-product-title {}
+.wsite-product .wsite-product-price a {}
+}</style>
+
+		<script>
+var STATIC_BASE = '//cdn1.editmysite.com/';
+var ASSETS_BASE = '//cdn2.editmysite.com/';
+var STYLE_PREFIX = 'wsite';
+</script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+
+<script type="text/javascript" src="http://cdn2.editmysite.com/js/lang/en/stl.js?buildTime=1234&"></script>
+<script src="http://cdn2.editmysite.com/js/site/main.js?buildTime=1234"></script><script type="text/javascript">
+		function initCustomerAccountsModels() {
+					(function(){_W.setup_rpc({"url":"\/ajax\/api\/JsonRPC\/CustomerAccounts\/","actions":{"CustomerAccounts":[{"name":"login","len":2,"multiple":false,"standalone":false},{"name":"logout","len":0,"multiple":false,"standalone":false},{"name":"getSessionDetails","len":0,"multiple":false,"standalone":false},{"name":"getAccountDetails","len":0,"multiple":false,"standalone":false},{"name":"getOrders","len":0,"multiple":false,"standalone":false},{"name":"register","len":4,"multiple":false,"standalone":false},{"name":"emailExists","len":1,"multiple":false,"standalone":false},{"name":"passwordReset","len":1,"multiple":false,"standalone":false},{"name":"passwordUpdate","len":3,"multiple":false,"standalone":false},{"name":"validateSession","len":1,"multiple":false,"standalone":false}]},"namespace":"_W.CustomerAccounts.RPC"});
+_W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":"_W.CustomerAccounts.BackboneModelData","collection_namespace":"_W.CustomerAccounts.BackboneCollectionData","bootstrap_namespace":"_W.CustomerAccounts.BackboneBootstrap","models":{"CustomerAccounts":{"_class":"CustomerAccounts.Model.CustomerAccounts","defaults":null,"validation":null,"types":null,"idAttribute":null,"keydefs":null}},"collections":{"CustomerAccounts":{"_class":"CustomerAccounts.Collection.CustomerAccounts"}},"bootstrap":[]});
+})();
+		}
+		if(document.createEvent && document.addEventListener) {
+			var initEvt = document.createEvent('Event');
+			initEvt.initEvent('customerAccountsModelsInitialized', true, false);
+			document.dispatchEvent(initEvt);
+		} else if(document.documentElement.initCustomerAccountsModels === 0){
+			document.documentElement.initCustomerAccountsModels++
+		}
+		</script>
+		<script type="text/javascript"> _W = _W || {}; _W.securePrefix='UNSET'; </script><script>_W = _W || {};
+			_W.customerLocale = "en_US";
+			_W.storeName = null;
+			_W.storeCountry = "US";
+			_W.storeCurrency = "USD";
+			_W.storeEuPrivacyPolicyUrl = "";
+			com_currentSite = "160568586123933431";
+			com_userID = "124764038";</script><script type="text/javascript">_W.configDomain = "www.weebly.com";</script><script>_W.relinquish && _W.relinquish()</script>
+<script type="text/javascript" src="http://cdn2.editmysite.com/js/lang/en/stl.js?buildTime=1234&"></script><script> _W.themePlugins = [];</script><script type="text/javascript"> _W.recaptchaUrl = "https://www.google.com/recaptcha/api.js"; </script><script type="text/javascript"><!--
+	var IS_ARCHIVE = 1;
+	
+	function initFlyouts(){
+		initPublishedFlyoutMenus(
+			[{"id":"770411695876406639","title":"Home","url":"index.html","target":"","nav_menu":false,"nonclickable":false},{"id":"407125507536001705","title":"Strategy","url":"strategy.html","target":"","nav_menu":false,"nonclickable":false},{"id":"102562441329504868","title":"Mechanical Design","url":"mechanical-design.html","target":"","nav_menu":false,"nonclickable":false},{"id":"870013093201913783","title":"Electrical Design","url":"electrical-design.html","target":"","nav_menu":false,"nonclickable":false},{"id":"143425887364876463","title":"Software Design","url":"software-design.html","target":"","nav_menu":false,"nonclickable":false},{"id":"199209846630905410","title":"Reflection","url":"reflection.html","target":"","nav_menu":false,"nonclickable":false}],
+			"143425887364876463",
+			'',
+			'active',
+			false,
+			{"navigation\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}} class=\"wsite-menu-item-wrap\">\n\t<a\n\t\t{{^nonclickable}}\n\t\t\t{{^nav_menu}}\n\t\t\t\thref=\"{{url}}\"\n\t\t\t{{\/nav_menu}}\n\t\t{{\/nonclickable}}\n\t\t{{#target}}\n\t\t\ttarget=\"{{target}}\"\n\t\t{{\/target}}\n\t\t{{#membership_required}}\n\t\t\tdata-membership-required=\"{{.}}\"\n\t\t{{\/membership_required}}\n\t\tclass=\"wsite-menu-item\"\n\t\t>\n\t\t{{{title_html}}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n","navigation\/flyout\/list":"<div class=\"wsite-menu-wrap\" style=\"display:none\">\n\t<ul class=\"wsite-menu\">\n\t\t{{#children}}{{> navigation\/flyout\/item}}{{\/children}}\n\t<\/ul>\n<\/div>\n","navigation\/flyout\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}}\n\tclass=\"wsite-menu-subitem-wrap {{#is_current}}wsite-nav-current{{\/is_current}}\"\n\t>\n\t<a\n\t\t{{^nonclickable}}\n\t\t\t{{^nav_menu}}\n\t\t\t\thref=\"{{url}}\"\n\t\t\t{{\/nav_menu}}\n\t\t{{\/nonclickable}}\n\t\t{{#target}}\n\t\t\ttarget=\"{{target}}\"\n\t\t{{\/target}}\n\t\tclass=\"wsite-menu-subitem\"\n\t\t>\n\t\t<span class=\"wsite-menu-title\">\n\t\t\t{{{title_html}}}\n\t\t<\/span>{{#has_children}}<span class=\"wsite-menu-arrow\">&gt;<\/span>{{\/has_children}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n"},
+			{"hasCustomMembership":true,"hasCustomMinicart":true}
+		)
+	}
+//-->
+</script>
+		
+		
+	</head>
+	<body class="header-page  wsite-page-software-design  sticky-nav-on full-width-on header-scroll-animate-off  wsite-theme-light"><div class="wrapper">
+    <div class="unite-header">
+      <div class="nav-wrap">
+        <div class="container">
+          <label class="hamburger"><span></span></label>
+          <div class="logo"><span class="wsite-logo">
+
+	<a href="">
+	
+	<span id="wsite-title">TEAM 7</span>
+	
+	</a>
+
+</span></div>
+          <div class="nav desktop-nav"><ul class="wsite-menu-default">
+		<li id="pg770411695876406639" class="wsite-menu-item-wrap">
+			<a
+						href="index.html"
+				class="wsite-menu-item"
+				>
+				Home
+			</a>
+			
+		</li>
+		<li id="pg407125507536001705" class="wsite-menu-item-wrap">
+			<a
+						href="strategy.html"
+				class="wsite-menu-item"
+				>
+				Strategy
+			</a>
+			
+		</li>
+		<li id="pg102562441329504868" class="wsite-menu-item-wrap">
+			<a
+						href="mechanical-design.html"
+				class="wsite-menu-item"
+				>
+				Mechanical Design
+			</a>
+			
+		</li>
+		<li id="pg870013093201913783" class="wsite-menu-item-wrap">
+			<a
+						href="electrical-design.html"
+				class="wsite-menu-item"
+				>
+				Electrical Design
+			</a>
+			
+		</li>
+		<li id="active" class="wsite-menu-item-wrap">
+			<a
+						href="software-design.html"
+				class="wsite-menu-item"
+				>
+				Software Design
+			</a>
+			
+		</li>
+		<li id="pg199209846630905410" class="wsite-menu-item-wrap">
+			<a
+						href="reflection.html"
+				class="wsite-menu-item"
+				>
+				Reflection
+			</a>
+			
+		</li>
+</ul>
+</div>
+          <div class="nav membership-cart"><span id="member-login" class="wsite-custom-membership-wrapper"><a href="#" id="wsite-nav-login-a"></a></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner-wrap">
+      <div class="wsite-elements wsite-not-footer wsite-header-elements">
+	<div class="wsite-section-wrap">
+	<div  class="wsite-section wsite-header-section wsite-section-bg-color" style="height: auto;background-color: #1e2330;background-image: none;is_customized: 1;" >
+		<div class="wsite-section-content">
+			
+          <div class="container">
+            <div class="banner">
+				<div class="wsite-section-elements">
+					<h2 class="wsite-content-title">Software</h2>
+				</div>
+			</div>
+          </div>
+      
+		</div>
+		<div class=""></div>
+	</div>
+</div>
+
+</div>
+
+    </div>
+
+    <div class="main-wrap">
+      <div id="wsite-content" class="wsite-elements wsite-not-footer">
+	<div class="wsite-section-wrap">
+	<div class="wsite-section wsite-body-section wsite-background-10"  >
+		<div class="wsite-section-content">
+          <div class="container">
+			<div class="wsite-section-elements">
+				<div class="paragraph" style="text-align:center;">&#8203;To see all of our code and other files, visit our Github repository:&nbsp;&#8203;https://github.com/Eblanken/Classes_ME210.git</div>
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0px;margin-right:0px;text-align:center">
+<a>
+<img src="uploads/1/2/4/7/124764038/fsm_1_orig.png" alt="Picture" style="width:auto;max-width:100%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="wsite-multicol-table">
+		<tbody class="wsite-multicol-tbody">
+			<tr class="wsite-multicol-tr">
+				<td class="wsite-multicol-col" style="width:33.333333333333%; padding:0 15px;">
+					
+						
+
+<div><div style="height: 20px; overflow: hidden; width: 100%;"></div>
+<hr class="styled-hr" style="width:100%;"></hr>
+<div style="height: 20px; overflow: hidden; width: 100%;"></div></div>
+
+<h2 class="wsite-content-title" style="text-align:center;">The Master</h2>
+
+<div class="paragraph" style="text-align:center;">Implements our FSM, slays dragons.</div>
+
+<div id="723249864568143885"><div><style type="text/css">
+	#element-c778d08c-7f7a-41ce-8e3d-138d7ad8f9af .code-editor--light {
+  padding: 20px 0px;
+}
+#element-c778d08c-7f7a-41ce-8e3d-138d7ad8f9af .code-editor--light .header {
+  padding: 10px 20px;
+  font-weight: bold;
+  border-left: 1px solid #C9CDCF;
+  border-right: 1px solid #C9CDCF;
+  border-top: 1px solid #C9CDCF;
+  background-color: #F8F8F8;
+  color: #363B3E;
+}
+#element-c778d08c-7f7a-41ce-8e3d-138d7ad8f9af .code-editor--light .header .paragraph {
+  margin: 0;
+}
+#element-c778d08c-7f7a-41ce-8e3d-138d7ad8f9af .code-editor--light .body-code {
+  margin: 0;
+  border: 1px solid #C9CDCF;
+  background-color: #FFFFFF;
+  color: #666C70;
+}
+#element-c778d08c-7f7a-41ce-8e3d-138d7ad8f9af .code-editor--dark {
+  padding: 20px 0px;
+}
+#element-c778d08c-7f7a-41ce-8e3d-138d7ad8f9af .code-editor--dark .ace-tomorrow-night-eighties {
+  background-color: #363B3E;
+}
+#element-c778d08c-7f7a-41ce-8e3d-138d7ad8f9af .code-editor--dark .header {
+  padding: 10px 20px;
+  font-weight: bold;
+  border-left: 1px solid #E0E1E2;
+  border-right: 1px solid #E0E1E2;
+  border-top: 1px solid #E0E1E2;
+  background-color: #666C70;
+  color: #FFFFFF;
+}
+#element-c778d08c-7f7a-41ce-8e3d-138d7ad8f9af .code-editor--dark .header .paragraph {
+  margin: 0;
+}
+#element-c778d08c-7f7a-41ce-8e3d-138d7ad8f9af .code-editor--dark .body-code {
+  margin: 0;
+  border: 1px solid #E0E1E2;
+  background-color: #363B3E;
+  color: #F8F8F8;
+}
+
+</style><div id="element-c778d08c-7f7a-41ce-8e3d-138d7ad8f9af" data-platform-element-id="270170748587580171-1.3.3" class="platform-element-contents">
+	<div class="code-editor--dark">
+    <div class="header">
+        <div class="paragraph"></div>
+    </div>
+    <div class="body-code">
+        <pre class="editor"></pre>
+    </div>
+</div>
+</div>
+<div style="clear:both;"></div><script type="text/javascript" class="element-script">function setupElement723249864568143885() {
+	var requireFunc = window.platformElementRequire || window.require;
+
+	// Relies on a global require, specific to platform elements
+	requireFunc([
+		'w-global',
+		'underscore',
+		'jquery',
+		'backbone',
+		'util/platform/elements/PlatformElement',
+		'util/platform/elements/PlatformElementSettings'
+	], function(
+		_W,
+		_,
+		$,
+		Backbone,
+		PlatformElement,
+		PlatformElementSettings
+	) {
+		var dependencies = ["\/\/marketplace.editmysite.com\/elements\/270170748587580171-1.3.3\/assets\/ace\/ace.js"] || [];
+		var platform_element_id = "270170748587580171-1.3.3";
+
+		if (typeof _W.loadedPlatformDependencies === 'undefined') {
+			_W.loadedPlatformDependencies = [];
+		}
+
+		if (typeof _W.platformElements === 'undefined') {
+			_W.platformElements = [];
+		}
+
+		if (typeof _W.platformElements[platform_element_id] === 'undefined') {
+			_W.platformElements[platform_element_id] = {};
+			_W.platformElements[platform_element_id].deferredObject = new $.Deferred();
+			_W.platformElements[platform_element_id].deferredPromise = _W.platformElements[platform_element_id].deferredObject.promise();
+		}
+
+		if(_.intersection(_W.loadedPlatformDependencies, dependencies).length !== dependencies.length){
+			_.reduce(dependencies, function(promise, nextScript){
+				_W.loadedPlatformDependencies.push(nextScript);
+				return promise.then(function(){
+					return $.getScript(nextScript);
+				});
+			}, $().promise()).then(function(){
+				_W.platformElements[platform_element_id].deferredObject.resolve();
+			});
+		}
+
+		if (dependencies.length === 0){
+			_W.platformElements[platform_element_id].deferredObject.resolve();
+		}
+
+		_W.platformElements[platform_element_id].deferredPromise.done(function(){
+			var _ElementDefinition = /**
+ * This is required for element rendering to be possible
+ * @type {PlatformElement}
+ */
+(function() {
+    var CodeBlock = PlatformElement.extend({
+        /**
+         * PlatformElement initialization. Code to setup the 
+         * element should go here.
+         */
+        initialize: function() {
+            this.theme = this.settings.get('style') == 'light' ? 'tomorrow' : 'tomorrow_night_eighties';
+
+            /**
+             * The script are not defined in the manifest 
+             * so that 6mb of scripts are not loaded. This 
+             * allows us to load only scripts needed for 
+             * each language and theme.
+             */
+            $.when(
+                $.getScript(this.assets_path + 'ace/mode-' + this.settings.get('syntax') + '.js'),
+                $.getScript(this.assets_path + 'ace/theme-' + this.theme + '.js')
+            ).done(function() {
+                /**
+                 * After the scripts are loaded, we can
+                 * then make the call to setup the editor.
+                 */
+                this.setUpEditor();
+            }.bind(this));
+
+            this.checkIfHeader();
+            this.modifyStyle();
+        },
+
+        /**
+         * Function to setup the editor
+         */
+        setUpEditor: function() {
+            this.editor = ace.edit(this.$el.find('.editor')[0]);
+            this.editor.setValue(this.settings.get('code'), -1);
+
+            this.editor.setTheme('ace/theme/' + this.theme);
+            this.editor.getSession().setMode('ace/mode/' + this.settings.get('syntax'));
+
+            this.editor.container.style.lineHeight = '26px';
+            this.editor.container.style.fontSize = '14px';
+            this.editor.renderer.setScrollMargin(20, 20);
+            this.editor.renderer.setPadding(20);
+
+            this.editor.setOptions({
+                'highlightActiveLine': this.settings.get('highlight_active_line'),
+                'readOnly': true,
+                'showPrintMargin': false
+            });
+
+            this.editor.renderer.setOptions({
+                'showGutter': this.settings.get('show_gutter'),
+                'maxLines': this.settings.get('max_lines'),
+                'minLines': this.settings.get('min_lines'),
+                'displayIndentGuides': this.settings.get('display_indent_guides')
+            });
+
+            this.editor.session.setOptions({
+                'wrap': this.settings.get('line_wrap'),
+                'useSoftTabs': this.settings.get('use_soft_tabs'),
+                'useWorker': false // workers rebind window.require so we need to disable them
+            });
+        },
+
+        /**
+         * Checks settings for whether or not the header
+         * should be displayed or not.
+         */
+        checkIfHeader: function() {
+            if(this.settings.get('display_header') == "0") {
+                this.$el.find('.header').remove();
+            }
+        },
+
+        /**
+         * Minor style tweaks done on some elements
+         */
+        modifyStyle: function() {
+            this.$el.find('.ace_content').css({
+                'margin-left': '20px'
+            });
+        }
+    });
+
+    return CodeBlock;
+})();;
+
+			if (typeof _ElementDefinition == 'undefined' || typeof _ElementDefinition == 'null') {
+				var _ElementDefinition = PlatformElement.extend({});
+			}
+
+			var _Element = _ElementDefinition.extend({
+				initialize: function() {
+					// we still want to call the initialize function defined by the developer
+					// however, we don't want to call it until placeholders have been replaced
+					this.placeholderInterval = setInterval(function() {
+						// so use setInterval to check for placeholders.
+						if (this.$('.platform-element-child-placeholder').length == 0) {
+							clearInterval(this.placeholderInterval);
+							this.constructor.__super__.initialize.apply(this);
+						}
+					}.bind(this), 100);
+				}
+			});
+
+			_Element.prototype.settings = new PlatformElementSettings({"max_lines_each":[{"max_lines_index":0},{"max_lines_index":1},{"max_lines_index":2},{"max_lines_index":3},{"max_lines_index":4},{"max_lines_index":5},{"max_lines_index":6},{"max_lines_index":7},{"max_lines_index":8},{"max_lines_index":9},{"max_lines_index":10},{"max_lines_index":11},{"max_lines_index":12},{"max_lines_index":13},{"max_lines_index":14},{"max_lines_index":15},{"max_lines_index":16},{"max_lines_index":17},{"max_lines_index":18},{"max_lines_index":19},{"max_lines_index":20},{"max_lines_index":21},{"max_lines_index":22},{"max_lines_index":23},{"max_lines_index":24},{"max_lines_index":25},{"max_lines_index":26},{"max_lines_index":27},{"max_lines_index":28},{"max_lines_index":29}],"min_lines_each":[{"min_lines_index":0}],"style":"dark","display_header":false,"syntax":"c_cpp","code":"\/*\n * File: main\n * --------------\n * Scott Blankenberg, Perry Alagappan, Stephany, Erick Blankenberg\n * ME210\n * 2\/5\/2019\n * Final Project\n *\n * Description:\n * \tImplements Master FSM\n *\/\n\n\/*------------------------------ Library Includes ----------------------------*\/\n\n#include <Arduino.h>\n#include <Metro.h>\n\n\/*---------------------------- Function Definitions --------------------------*\/\n\n\/\/ Motor functions\nvoid handleMoveNorth(void);\nvoid handleMoveSouth(void);\nvoid handleMoveWest(void);\nvoid handleMoveEast(void);\nvoid hugNorthWall(void);\nvoid hugSouthWall(void);\nvoid hugEastWall(void);\nvoid hugWestWall(void);\nvoid handleIdle(void);\nvoid edge_response(void);\n\n\/\/ Timer functions\nuint8_t check_reload_expired(void);\nuint8_t check_south_expired(void);\nuint8_t check_game_expired(void);\n\n\/*------------------------------ Pin Definitions -----------------------------*\/\n\n\/\/ Bumper pins, make sure to use input pullup. Is high when depressed.\n#define PIN_EAST_BUMPER  8\n#define PIN_WEST_BUMPER  7\n#define PIN_SOUTH_BUMPER 6\n#define PIN_NORTH_BUMPER 5\n\n\/\/ IO, write launcher high to start spinning, servo high to release ammo\n\/\/ rising interrupt on PHOTO_SIGNAL_IN.\n#define OUTPUT_LAUNCHER_MOTOR 19\n#define OUTPUT_SERVO          18\n#define PHOTO_SIGNAL_IN 12\n\n\/\/ Motor pins\n#define PIN_NORTH_MOTOR_1 4\n#define PIN_NORTH_MOTOR_2 3\n#define PIN_SOUTH_MOTOR_1 10\n#define PIN_SOUTH_MOTOR_2 9\n#define PIN_EAST_MOTOR_1  17\n#define PIN_EAST_MOTOR_2  16\n#define PIN_WEST_MOTOR_1  22\n#define PIN_WEST_MOTOR_2  23\n\n\/*----------------------------- Global Variables -----------------------------*\/\n\n\/\/ Bumper tracking\nbool bumper_south_down;\nbool bumper_north_down;\nbool bumper_west_down;\nbool bumper_east_down;\n\n\/\/ Motor state\nbool motor_1_on = 0;\nbool motor_1_north = 1;\nbool motor_2_on = 0;\nbool motor_2_west = 1;\n\n\/\/ Timers\n#define RELOAD_TIME 5E3 \/\/ (ms) pause time for human reload\nstatic Metro reloadTimer = Metro(RELOAD_TIME);\n#define GAME_TIME 130e3 \/\/ (ms) total game time, bot shuts down after\nstatic Metro gameTimer = Metro(GAME_TIME);\n#define SOUTH_TIME 1500 \/\/ (ms) time for driving away from armoury to dragon spot\nstatic Metro southTimer = Metro(SOUTH_TIME);\n\n\/\/ Launcher controls\nbool fired_shot = true;\nbool safety_off =false;\n\n\/\/ State data\ntypedef enum {\n  IDLE_STATE, INIT_WEST, NORTH, ARMORY_STATE, SOUTH, FIRE_STATE, END_GAME, OUT_ARMORY\n} States_t;\nStates_t state;\n\n\/*----------------------------------- Main -----------------------------------*\/\n\nvoid setup() {\n  Serial.begin(9600);\n\n  \/\/ Launcher pins\n  pinMode(OUTPUT_LAUNCHER_MOTOR, OUTPUT);\n  digitalWrite(OUTPUT_LAUNCHER_MOTOR, LOW);\n  pinMode(OUTPUT_SERVO, OUTPUT);\n  digitalWrite(OUTPUT_SERVO, LOW);\n\n  \/\/Phototransistor pins\n  pinMode(PHOTO_SIGNAL_IN, INPUT_PULLDOWN);\n  attachInterrupt(digitalPinToInterrupt(PHOTO_SIGNAL_IN), edge_response, RISING);\n\n  \/\/Drive train pins\n  pinMode(PIN_NORTH_MOTOR_1, OUTPUT);\n  pinMode(PIN_NORTH_MOTOR_2, OUTPUT);\n  digitalWrite(PIN_NORTH_MOTOR_1, motor_1_north);\n  digitalWrite(PIN_NORTH_MOTOR_2, !motor_1_north);\n  pinMode(PIN_SOUTH_MOTOR_1, OUTPUT);\n  pinMode(PIN_SOUTH_MOTOR_2, OUTPUT);\n  digitalWrite(PIN_SOUTH_MOTOR_1, motor_1_north);\n  digitalWrite(PIN_SOUTH_MOTOR_2, !motor_1_north);\n  pinMode(PIN_EAST_MOTOR_1, OUTPUT);\n  pinMode(PIN_EAST_MOTOR_2, OUTPUT);\n  digitalWrite(PIN_EAST_MOTOR_1, motor_2_west);\n  digitalWrite(PIN_EAST_MOTOR_2, !motor_2_west);\n  pinMode(PIN_WEST_MOTOR_1, OUTPUT);\n  pinMode(PIN_WEST_MOTOR_2, OUTPUT);\n  digitalWrite(PIN_WEST_MOTOR_1, motor_2_west);\n  digitalWrite(PIN_WEST_MOTOR_2, !motor_2_west);\n\n  \/\/ Bumper pins\n  pinMode(PIN_SOUTH_BUMPER, INPUT_PULLUP);\n  pinMode(PIN_NORTH_BUMPER, INPUT_PULLUP);\n  pinMode(PIN_EAST_BUMPER, INPUT_PULLUP);\n  pinMode(PIN_WEST_BUMPER, INPUT_PULLUP);\n\n  \/\/ Initial states for drive train and tower\n  state = INIT_WEST;\n}\n\nvoid loop() {\n  if (check_game_expired()) {\n    state = END_GAME;\n  }\n\n  static int count_print = 1;\n  bumper_south_down =  digitalRead(PIN_SOUTH_BUMPER);\n  bumper_north_down =  digitalRead(PIN_NORTH_BUMPER);\n  bumper_west_down =  digitalRead(PIN_WEST_BUMPER);\n  bumper_east_down =  digitalRead(PIN_EAST_BUMPER);\n\n  if(count_print == 1000) {\n    Serial.print(\"State = \");\n    Serial.println(state);\n    Serial.print(\"safety_off = \");\n    Serial.println(safety_off);\n    Serial.print(\"fired = \");\n    Serial.println(fired_shot);\n    count_print = 1;\n  }\n\n  count_print = count_print+1;\n\n  switch (state) {\n    case INIT_WEST:\n      handleMoveWest();\n      hugSouthWall();\n      if((bumper_west_down && !bumper_north_down )|| (bumper_west_down && bumper_south_down) ) {\n          state = NORTH;\n      }\n      break;\n    case NORTH:\n      handleMoveNorth();\n      hugWestWall();\n      if ((bumper_north_down && !bumper_east_down) || (bumper_north_down && bumper_west_down) ) {\n          state = ARMORY_STATE;\n          reloadTimer.reset();\n      }\n      break;\n\n    case ARMORY_STATE:\n      handleIdle();\n      if(check_reload_expired()) {\n        state = SOUTH; \/\/PREVIOUS STATE SOUTH\n        southTimer.reset();\n        digitalWrite(OUTPUT_LAUNCHER_MOTOR, HIGH);\n      }\n      break;\n\n    case SOUTH:\n      handleMoveSouth();\n      hugWestWall();\n       if (check_south_expired()){\n        state = IDLE_STATE;\n        safety_off = true;\n      }\n    break;\n\n    case IDLE_STATE:\n      handleIdle();\n      if(!safety_off) { \/\/ Gun fired\n        delay(3000);\n        digitalWrite(OUTPUT_LAUNCHER_MOTOR, LOW);\n        state = NORTH;\n      }\n      break;\n\n    case END_GAME:\n      handleIdle();\n      state = END_GAME;\n      digitalWrite(OUTPUT_LAUNCHER_MOTOR, LOW);\n      break;\n\n    default:    \/\/ Should never get into an unhandled state\n      Serial.println(\"What is this I do not even...\");\n  }\n\n  if(motor_1_on) {\n      digitalWrite(PIN_NORTH_MOTOR_1, motor_1_north);\n      digitalWrite(PIN_NORTH_MOTOR_2, !motor_1_north);\n      digitalWrite(PIN_SOUTH_MOTOR_1, motor_1_north);\n      digitalWrite(PIN_SOUTH_MOTOR_2, !motor_1_north);\n  } else {\n      digitalWrite(PIN_NORTH_MOTOR_1, 0);\n      digitalWrite(PIN_NORTH_MOTOR_2, 0);\n      digitalWrite(PIN_SOUTH_MOTOR_1, 0);\n      digitalWrite(PIN_SOUTH_MOTOR_2, 0);\n  }\n\n  if(motor_2_on ) {\n      digitalWrite(PIN_EAST_MOTOR_1, motor_2_west);\n      digitalWrite(PIN_EAST_MOTOR_2, !motor_2_west);\n      digitalWrite(PIN_WEST_MOTOR_1, motor_2_west);\n      digitalWrite(PIN_WEST_MOTOR_2, !motor_2_west);\n  } else {\n      digitalWrite(PIN_EAST_MOTOR_1, 0);\n      digitalWrite(PIN_EAST_MOTOR_2, 0);\n      digitalWrite(PIN_WEST_MOTOR_1, 0);\n      digitalWrite(PIN_WEST_MOTOR_2, 0);\n  }\n}\n\n\n void handleMoveNorth(void){\n  motor_1_on = 1;\n  motor_1_north = 1;\n }\n\n void handleMoveSouth(void){\n  motor_1_on = 1;\n  motor_1_north = 0;\n }\n\n void handleMoveWest(void){\n  motor_2_on = 1;\n  motor_2_west = 1;\n }\n\n void handleMoveEast(void) {\n  motor_2_on = 1;\n  motor_2_west = 0;\n }\n\n void handleIdle(void) {\n  motor_1_on = 0;\n  motor_2_on = 0;\n }\n\n void hugNorthWall(void) {\n  if(bumper_north_down == 0) {\n    motor_1_on = 1;\n    motor_1_north = 1;\n  } else {\n    motor_1_on = 0;\n    motor_1_north = 1;\n  }\n}\n\nvoid hugSouthWall(void) {\n  if(bumper_south_down == 0) {\n    motor_1_on = 1;\n    motor_1_north = 0;\n  } else {\n    motor_1_on = 0;\n    motor_1_north = 0;\n  }\n\n}\n\nvoid hugEastWall(void) {\n  if(bumper_east_down == 0) {\n    motor_2_on = 1;\n    motor_2_west = 0;\n  } else {\n    motor_2_on = 0;\n    motor_2_west = 0;\n    }\n\n}\n\nvoid hugWestWall(void) {\n  if(bumper_west_down == 0) {\n    motor_2_on = 1;\n    motor_2_west = 1;\n  } else {\n    motor_2_on = 0;\n    motor_2_west = 1;\n  }\n}\n\nuint8_t check_reload_expired(void) {\n  return (uint8_t) reloadTimer.check();\n}\n\nuint8_t check_south_expired(void) {\n  return (uint8_t) southTimer.check();\n}\n\nuint8_t check_game_expired(void) {\n  return (uint8_t) gameTimer.check();\n}\n\nvoid edge_response(void) {\n  if(safety_off) {\n    safety_off = false;\n    digitalWrite(OUTPUT_SERVO, HIGH);\n    delay(15);\n    digitalWrite(OUTPUT_SERVO, LOW);\n  }\n}\n","highlight_active_line":false,"show_gutter":false,"display_indent_guides":false,"line_wrap":false,"use_soft_tabs":true,"max_lines":30,"min_lines":1});
+			_Element.prototype.settings.page_element_id = "723249864568143885";
+
+			_Element.prototype.element_id = "c778d08c-7f7a-41ce-8e3d-138d7ad8f9af";
+			_Element.prototype.user_id = "124764038";
+			_Element.prototype.site_id = "160568586123933431";
+			_Element.prototype.assets_path = "//marketplace.editmysite.com/elements/270170748587580171-1.3.3/assets/";
+			new _Element({
+				el: '#element-c778d08c-7f7a-41ce-8e3d-138d7ad8f9af'
+			});
+		});
+	});
+
+}
+
+if (typeof document.documentElement.appReady == 'undefined') {
+	document.documentElement.appReady = 0;
+}
+
+if (document.documentElement.appReady || (window.inEditor && window.inEditor())) {
+	setupElement723249864568143885();
+} else if (document.createEvent && document.addEventListener) {
+	document.addEventListener('appReady', setupElement723249864568143885, false);
+} else {
+	document.documentElement.attachEvent('onpropertychange', function(event){
+		if (event.propertyName == 'appReady') {
+			setupElement723249864568143885();
+		}
+	});
+}
+
+</script></div></div>
+
+
+					
+				</td>				<td class="wsite-multicol-col" style="width:33.333333333333%; padding:0 15px;">
+					
+						
+
+<div><div style="height: 20px; overflow: hidden; width: 100%;"></div>
+<hr class="styled-hr" style="width:100%;"></hr>
+<div style="height: 20px; overflow: hidden; width: 100%;"></div></div>
+
+<h2 class="wsite-content-title" style="text-align:center;">The Launcher</h2>
+
+<div class="paragraph" style="text-align:center;">Spools up the cannon, fires balls.</div>
+
+<div id="836980251319248102"><div><style type="text/css">
+	#element-16f7e2db-d038-428f-9e3e-3eac0a213b45 .code-editor--light {
+  padding: 20px 0px;
+}
+#element-16f7e2db-d038-428f-9e3e-3eac0a213b45 .code-editor--light .header {
+  padding: 10px 20px;
+  font-weight: bold;
+  border-left: 1px solid #C9CDCF;
+  border-right: 1px solid #C9CDCF;
+  border-top: 1px solid #C9CDCF;
+  background-color: #F8F8F8;
+  color: #363B3E;
+}
+#element-16f7e2db-d038-428f-9e3e-3eac0a213b45 .code-editor--light .header .paragraph {
+  margin: 0;
+}
+#element-16f7e2db-d038-428f-9e3e-3eac0a213b45 .code-editor--light .body-code {
+  margin: 0;
+  border: 1px solid #C9CDCF;
+  background-color: #FFFFFF;
+  color: #666C70;
+}
+#element-16f7e2db-d038-428f-9e3e-3eac0a213b45 .code-editor--dark {
+  padding: 20px 0px;
+}
+#element-16f7e2db-d038-428f-9e3e-3eac0a213b45 .code-editor--dark .ace-tomorrow-night-eighties {
+  background-color: #363B3E;
+}
+#element-16f7e2db-d038-428f-9e3e-3eac0a213b45 .code-editor--dark .header {
+  padding: 10px 20px;
+  font-weight: bold;
+  border-left: 1px solid #E0E1E2;
+  border-right: 1px solid #E0E1E2;
+  border-top: 1px solid #E0E1E2;
+  background-color: #666C70;
+  color: #FFFFFF;
+}
+#element-16f7e2db-d038-428f-9e3e-3eac0a213b45 .code-editor--dark .header .paragraph {
+  margin: 0;
+}
+#element-16f7e2db-d038-428f-9e3e-3eac0a213b45 .code-editor--dark .body-code {
+  margin: 0;
+  border: 1px solid #E0E1E2;
+  background-color: #363B3E;
+  color: #F8F8F8;
+}
+
+</style><div id="element-16f7e2db-d038-428f-9e3e-3eac0a213b45" data-platform-element-id="270170748587580171-1.3.3" class="platform-element-contents">
+	<div class="code-editor--dark">
+    <div class="header">
+        <div class="paragraph">Code Editor</div>
+    </div>
+    <div class="body-code">
+        <pre class="editor"></pre>
+    </div>
+</div>
+</div>
+<div style="clear:both;"></div><script type="text/javascript" class="element-script">function setupElement836980251319248102() {
+	var requireFunc = window.platformElementRequire || window.require;
+
+	// Relies on a global require, specific to platform elements
+	requireFunc([
+		'w-global',
+		'underscore',
+		'jquery',
+		'backbone',
+		'util/platform/elements/PlatformElement',
+		'util/platform/elements/PlatformElementSettings'
+	], function(
+		_W,
+		_,
+		$,
+		Backbone,
+		PlatformElement,
+		PlatformElementSettings
+	) {
+		var dependencies = ["\/\/marketplace.editmysite.com\/elements\/270170748587580171-1.3.3\/assets\/ace\/ace.js"] || [];
+		var platform_element_id = "270170748587580171-1.3.3";
+
+		if (typeof _W.loadedPlatformDependencies === 'undefined') {
+			_W.loadedPlatformDependencies = [];
+		}
+
+		if (typeof _W.platformElements === 'undefined') {
+			_W.platformElements = [];
+		}
+
+		if (typeof _W.platformElements[platform_element_id] === 'undefined') {
+			_W.platformElements[platform_element_id] = {};
+			_W.platformElements[platform_element_id].deferredObject = new $.Deferred();
+			_W.platformElements[platform_element_id].deferredPromise = _W.platformElements[platform_element_id].deferredObject.promise();
+		}
+
+		if(_.intersection(_W.loadedPlatformDependencies, dependencies).length !== dependencies.length){
+			_.reduce(dependencies, function(promise, nextScript){
+				_W.loadedPlatformDependencies.push(nextScript);
+				return promise.then(function(){
+					return $.getScript(nextScript);
+				});
+			}, $().promise()).then(function(){
+				_W.platformElements[platform_element_id].deferredObject.resolve();
+			});
+		}
+
+		if (dependencies.length === 0){
+			_W.platformElements[platform_element_id].deferredObject.resolve();
+		}
+
+		_W.platformElements[platform_element_id].deferredPromise.done(function(){
+			var _ElementDefinition = /**
+ * This is required for element rendering to be possible
+ * @type {PlatformElement}
+ */
+(function() {
+    var CodeBlock = PlatformElement.extend({
+        /**
+         * PlatformElement initialization. Code to setup the 
+         * element should go here.
+         */
+        initialize: function() {
+            this.theme = this.settings.get('style') == 'light' ? 'tomorrow' : 'tomorrow_night_eighties';
+
+            /**
+             * The script are not defined in the manifest 
+             * so that 6mb of scripts are not loaded. This 
+             * allows us to load only scripts needed for 
+             * each language and theme.
+             */
+            $.when(
+                $.getScript(this.assets_path + 'ace/mode-' + this.settings.get('syntax') + '.js'),
+                $.getScript(this.assets_path + 'ace/theme-' + this.theme + '.js')
+            ).done(function() {
+                /**
+                 * After the scripts are loaded, we can
+                 * then make the call to setup the editor.
+                 */
+                this.setUpEditor();
+            }.bind(this));
+
+            this.checkIfHeader();
+            this.modifyStyle();
+        },
+
+        /**
+         * Function to setup the editor
+         */
+        setUpEditor: function() {
+            this.editor = ace.edit(this.$el.find('.editor')[0]);
+            this.editor.setValue(this.settings.get('code'), -1);
+
+            this.editor.setTheme('ace/theme/' + this.theme);
+            this.editor.getSession().setMode('ace/mode/' + this.settings.get('syntax'));
+
+            this.editor.container.style.lineHeight = '26px';
+            this.editor.container.style.fontSize = '14px';
+            this.editor.renderer.setScrollMargin(20, 20);
+            this.editor.renderer.setPadding(20);
+
+            this.editor.setOptions({
+                'highlightActiveLine': this.settings.get('highlight_active_line'),
+                'readOnly': true,
+                'showPrintMargin': false
+            });
+
+            this.editor.renderer.setOptions({
+                'showGutter': this.settings.get('show_gutter'),
+                'maxLines': this.settings.get('max_lines'),
+                'minLines': this.settings.get('min_lines'),
+                'displayIndentGuides': this.settings.get('display_indent_guides')
+            });
+
+            this.editor.session.setOptions({
+                'wrap': this.settings.get('line_wrap'),
+                'useSoftTabs': this.settings.get('use_soft_tabs'),
+                'useWorker': false // workers rebind window.require so we need to disable them
+            });
+        },
+
+        /**
+         * Checks settings for whether or not the header
+         * should be displayed or not.
+         */
+        checkIfHeader: function() {
+            if(this.settings.get('display_header') == "0") {
+                this.$el.find('.header').remove();
+            }
+        },
+
+        /**
+         * Minor style tweaks done on some elements
+         */
+        modifyStyle: function() {
+            this.$el.find('.ace_content').css({
+                'margin-left': '20px'
+            });
+        }
+    });
+
+    return CodeBlock;
+})();;
+
+			if (typeof _ElementDefinition == 'undefined' || typeof _ElementDefinition == 'null') {
+				var _ElementDefinition = PlatformElement.extend({});
+			}
+
+			var _Element = _ElementDefinition.extend({
+				initialize: function() {
+					// we still want to call the initialize function defined by the developer
+					// however, we don't want to call it until placeholders have been replaced
+					this.placeholderInterval = setInterval(function() {
+						// so use setInterval to check for placeholders.
+						if (this.$('.platform-element-child-placeholder').length == 0) {
+							clearInterval(this.placeholderInterval);
+							this.constructor.__super__.initialize.apply(this);
+						}
+					}.bind(this), 100);
+				}
+			});
+
+			_Element.prototype.settings = new PlatformElementSettings({"max_lines_each":[{"max_lines_index":0},{"max_lines_index":1},{"max_lines_index":2},{"max_lines_index":3},{"max_lines_index":4},{"max_lines_index":5},{"max_lines_index":6},{"max_lines_index":7},{"max_lines_index":8},{"max_lines_index":9},{"max_lines_index":10},{"max_lines_index":11},{"max_lines_index":12},{"max_lines_index":13},{"max_lines_index":14},{"max_lines_index":15},{"max_lines_index":16},{"max_lines_index":17},{"max_lines_index":18},{"max_lines_index":19},{"max_lines_index":20},{"max_lines_index":21},{"max_lines_index":22},{"max_lines_index":23},{"max_lines_index":24},{"max_lines_index":25},{"max_lines_index":26},{"max_lines_index":27},{"max_lines_index":28},{"max_lines_index":29}],"min_lines_each":[{"min_lines_index":0}],"style":"dark","display_header":false,"syntax":"c_cpp","code":"\/*\n * File: launcher\n * --------------\n * Scott Blankenberg, Perry Alagappan, Stephany, Erick Blankenberg\n * ME210\n * 2\/5\/2019\n * Final Project\n *\n * Description:\n * \tImplements Launcher Code\n *\/\n\n\/*------------------------------ Library Includes ----------------------------*\/\n\n#include <Arduino.h>\n#include <Servo.h>\n\n\/*------------------------------ Pin Definitions -----------------------------*\/\n\n#define PIN_LAUNCHERTOP     22\n#define PIN_LAUNCHERBOTTOM  23\n#define PIN_INPUT_STARTMOTOR      16\n#define PIN_INPUT_ACTUATESERVO    17\n#define PIN_SERVO           3\n\n\/*------------------------------ Global Variables ----------------------------*\/\n\nServo myservo;\nbool value = false;\n\n\/*----------------------------------- Main -----------------------------------*\/\n\nvoid setup() {\n  Serial.begin(9600);\n  pinMode(PIN_LAUNCHERTOP, OUTPUT);\n  pinMode(PIN_LAUNCHERBOTTOM, OUTPUT);\n  pinMode(PIN_INPUT_STARTMOTOR, INPUT_PULLDOWN);\n  pinMode(PIN_INPUT_ACTUATESERVO, INPUT_PULLDOWN);\n  myservo.attach(PIN_SERVO);\n  myservo.write(0);\n}\n\nvoid loop() {\n  \/\/ Spins up launcher\n  if(digitalRead(PIN_INPUT_STARTMOTOR)) {\n    analogWrite(PIN_LAUNCHERTOP, 200);\n    analogWrite(PIN_LAUNCHERBOTTOM, 200);\n  } else {\n    analogWrite(PIN_LAUNCHERTOP, 0);\n    analogWrite(PIN_LAUNCHERBOTTOM, 0);\n  }\n  \/\/ Releases ammunition\n  if(digitalRead(PIN_INPUT_ACTUATESERVO)) {\n       myservo.write(180);\n       delay(3000);\n       myservo.write(0);\n  }\n}","highlight_active_line":false,"show_gutter":false,"display_indent_guides":false,"line_wrap":false,"use_soft_tabs":true,"max_lines":30,"min_lines":1});
+			_Element.prototype.settings.page_element_id = "836980251319248102";
+
+			_Element.prototype.element_id = "16f7e2db-d038-428f-9e3e-3eac0a213b45";
+			_Element.prototype.user_id = "124764038";
+			_Element.prototype.site_id = "160568586123933431";
+			_Element.prototype.assets_path = "//marketplace.editmysite.com/elements/270170748587580171-1.3.3/assets/";
+			new _Element({
+				el: '#element-16f7e2db-d038-428f-9e3e-3eac0a213b45'
+			});
+		});
+	});
+
+}
+
+if (typeof document.documentElement.appReady == 'undefined') {
+	document.documentElement.appReady = 0;
+}
+
+if (document.documentElement.appReady || (window.inEditor && window.inEditor())) {
+	setupElement836980251319248102();
+} else if (document.createEvent && document.addEventListener) {
+	document.addEventListener('appReady', setupElement836980251319248102, false);
+} else {
+	document.documentElement.attachEvent('onpropertychange', function(event){
+		if (event.propertyName == 'appReady') {
+			setupElement836980251319248102();
+		}
+	});
+}
+
+</script></div></div>
+
+
+					
+				</td>				<td class="wsite-multicol-col" style="width:33.333333333333%; padding:0 15px;">
+					
+						
+
+<div><div style="height: 20px; overflow: hidden; width: 100%;"></div>
+<hr class="styled-hr" style="width:100%;"></hr>
+<div style="height: 20px; overflow: hidden; width: 100%;"></div></div>
+
+<h2 class="wsite-content-title" style="text-align:center;">IR Detector Code</h2>
+
+<div class="paragraph" style="text-align:center;">&nbsp;Looks for dragon, alerts master.</div>
+
+<div id="835721750727859772"><div><style type="text/css">
+	#element-5027b1df-a8e8-42be-80b9-fa7470f34c8d .code-editor--light {
+  padding: 20px 0px;
+}
+#element-5027b1df-a8e8-42be-80b9-fa7470f34c8d .code-editor--light .header {
+  padding: 10px 20px;
+  font-weight: bold;
+  border-left: 1px solid #C9CDCF;
+  border-right: 1px solid #C9CDCF;
+  border-top: 1px solid #C9CDCF;
+  background-color: #F8F8F8;
+  color: #363B3E;
+}
+#element-5027b1df-a8e8-42be-80b9-fa7470f34c8d .code-editor--light .header .paragraph {
+  margin: 0;
+}
+#element-5027b1df-a8e8-42be-80b9-fa7470f34c8d .code-editor--light .body-code {
+  margin: 0;
+  border: 1px solid #C9CDCF;
+  background-color: #FFFFFF;
+  color: #666C70;
+}
+#element-5027b1df-a8e8-42be-80b9-fa7470f34c8d .code-editor--dark {
+  padding: 20px 0px;
+}
+#element-5027b1df-a8e8-42be-80b9-fa7470f34c8d .code-editor--dark .ace-tomorrow-night-eighties {
+  background-color: #363B3E;
+}
+#element-5027b1df-a8e8-42be-80b9-fa7470f34c8d .code-editor--dark .header {
+  padding: 10px 20px;
+  font-weight: bold;
+  border-left: 1px solid #E0E1E2;
+  border-right: 1px solid #E0E1E2;
+  border-top: 1px solid #E0E1E2;
+  background-color: #666C70;
+  color: #FFFFFF;
+}
+#element-5027b1df-a8e8-42be-80b9-fa7470f34c8d .code-editor--dark .header .paragraph {
+  margin: 0;
+}
+#element-5027b1df-a8e8-42be-80b9-fa7470f34c8d .code-editor--dark .body-code {
+  margin: 0;
+  border: 1px solid #E0E1E2;
+  background-color: #363B3E;
+  color: #F8F8F8;
+}
+
+</style><div id="element-5027b1df-a8e8-42be-80b9-fa7470f34c8d" data-platform-element-id="270170748587580171-1.3.3" class="platform-element-contents">
+	<div class="code-editor--dark">
+    <div class="header">
+        <div class="paragraph">Code Editor</div>
+    </div>
+    <div class="body-code">
+        <pre class="editor"></pre>
+    </div>
+</div>
+</div>
+<div style="clear:both;"></div><script type="text/javascript" class="element-script">function setupElement835721750727859772() {
+	var requireFunc = window.platformElementRequire || window.require;
+
+	// Relies on a global require, specific to platform elements
+	requireFunc([
+		'w-global',
+		'underscore',
+		'jquery',
+		'backbone',
+		'util/platform/elements/PlatformElement',
+		'util/platform/elements/PlatformElementSettings'
+	], function(
+		_W,
+		_,
+		$,
+		Backbone,
+		PlatformElement,
+		PlatformElementSettings
+	) {
+		var dependencies = ["\/\/marketplace.editmysite.com\/elements\/270170748587580171-1.3.3\/assets\/ace\/ace.js"] || [];
+		var platform_element_id = "270170748587580171-1.3.3";
+
+		if (typeof _W.loadedPlatformDependencies === 'undefined') {
+			_W.loadedPlatformDependencies = [];
+		}
+
+		if (typeof _W.platformElements === 'undefined') {
+			_W.platformElements = [];
+		}
+
+		if (typeof _W.platformElements[platform_element_id] === 'undefined') {
+			_W.platformElements[platform_element_id] = {};
+			_W.platformElements[platform_element_id].deferredObject = new $.Deferred();
+			_W.platformElements[platform_element_id].deferredPromise = _W.platformElements[platform_element_id].deferredObject.promise();
+		}
+
+		if(_.intersection(_W.loadedPlatformDependencies, dependencies).length !== dependencies.length){
+			_.reduce(dependencies, function(promise, nextScript){
+				_W.loadedPlatformDependencies.push(nextScript);
+				return promise.then(function(){
+					return $.getScript(nextScript);
+				});
+			}, $().promise()).then(function(){
+				_W.platformElements[platform_element_id].deferredObject.resolve();
+			});
+		}
+
+		if (dependencies.length === 0){
+			_W.platformElements[platform_element_id].deferredObject.resolve();
+		}
+
+		_W.platformElements[platform_element_id].deferredPromise.done(function(){
+			var _ElementDefinition = /**
+ * This is required for element rendering to be possible
+ * @type {PlatformElement}
+ */
+(function() {
+    var CodeBlock = PlatformElement.extend({
+        /**
+         * PlatformElement initialization. Code to setup the 
+         * element should go here.
+         */
+        initialize: function() {
+            this.theme = this.settings.get('style') == 'light' ? 'tomorrow' : 'tomorrow_night_eighties';
+
+            /**
+             * The script are not defined in the manifest 
+             * so that 6mb of scripts are not loaded. This 
+             * allows us to load only scripts needed for 
+             * each language and theme.
+             */
+            $.when(
+                $.getScript(this.assets_path + 'ace/mode-' + this.settings.get('syntax') + '.js'),
+                $.getScript(this.assets_path + 'ace/theme-' + this.theme + '.js')
+            ).done(function() {
+                /**
+                 * After the scripts are loaded, we can
+                 * then make the call to setup the editor.
+                 */
+                this.setUpEditor();
+            }.bind(this));
+
+            this.checkIfHeader();
+            this.modifyStyle();
+        },
+
+        /**
+         * Function to setup the editor
+         */
+        setUpEditor: function() {
+            this.editor = ace.edit(this.$el.find('.editor')[0]);
+            this.editor.setValue(this.settings.get('code'), -1);
+
+            this.editor.setTheme('ace/theme/' + this.theme);
+            this.editor.getSession().setMode('ace/mode/' + this.settings.get('syntax'));
+
+            this.editor.container.style.lineHeight = '26px';
+            this.editor.container.style.fontSize = '14px';
+            this.editor.renderer.setScrollMargin(20, 20);
+            this.editor.renderer.setPadding(20);
+
+            this.editor.setOptions({
+                'highlightActiveLine': this.settings.get('highlight_active_line'),
+                'readOnly': true,
+                'showPrintMargin': false
+            });
+
+            this.editor.renderer.setOptions({
+                'showGutter': this.settings.get('show_gutter'),
+                'maxLines': this.settings.get('max_lines'),
+                'minLines': this.settings.get('min_lines'),
+                'displayIndentGuides': this.settings.get('display_indent_guides')
+            });
+
+            this.editor.session.setOptions({
+                'wrap': this.settings.get('line_wrap'),
+                'useSoftTabs': this.settings.get('use_soft_tabs'),
+                'useWorker': false // workers rebind window.require so we need to disable them
+            });
+        },
+
+        /**
+         * Checks settings for whether or not the header
+         * should be displayed or not.
+         */
+        checkIfHeader: function() {
+            if(this.settings.get('display_header') == "0") {
+                this.$el.find('.header').remove();
+            }
+        },
+
+        /**
+         * Minor style tweaks done on some elements
+         */
+        modifyStyle: function() {
+            this.$el.find('.ace_content').css({
+                'margin-left': '20px'
+            });
+        }
+    });
+
+    return CodeBlock;
+})();;
+
+			if (typeof _ElementDefinition == 'undefined' || typeof _ElementDefinition == 'null') {
+				var _ElementDefinition = PlatformElement.extend({});
+			}
+
+			var _Element = _ElementDefinition.extend({
+				initialize: function() {
+					// we still want to call the initialize function defined by the developer
+					// however, we don't want to call it until placeholders have been replaced
+					this.placeholderInterval = setInterval(function() {
+						// so use setInterval to check for placeholders.
+						if (this.$('.platform-element-child-placeholder').length == 0) {
+							clearInterval(this.placeholderInterval);
+							this.constructor.__super__.initialize.apply(this);
+						}
+					}.bind(this), 100);
+				}
+			});
+
+			_Element.prototype.settings = new PlatformElementSettings({"max_lines_each":[{"max_lines_index":0},{"max_lines_index":1},{"max_lines_index":2},{"max_lines_index":3},{"max_lines_index":4},{"max_lines_index":5},{"max_lines_index":6},{"max_lines_index":7},{"max_lines_index":8},{"max_lines_index":9},{"max_lines_index":10},{"max_lines_index":11},{"max_lines_index":12},{"max_lines_index":13},{"max_lines_index":14},{"max_lines_index":15},{"max_lines_index":16},{"max_lines_index":17},{"max_lines_index":18},{"max_lines_index":19},{"max_lines_index":20},{"max_lines_index":21},{"max_lines_index":22},{"max_lines_index":23},{"max_lines_index":24},{"max_lines_index":25},{"max_lines_index":26},{"max_lines_index":27},{"max_lines_index":28},{"max_lines_index":29}],"min_lines_each":[{"min_lines_index":0}],"style":"dark","display_header":false,"syntax":"c_cpp","code":"\/*\n * File: detector\n * --------------\n * Scott Blankenberg, Perry Alagappan, Stephany, Erick Blankenberg\n * ME210\n * 2\/5\/2019\n * Final Project\n *\n * Description:\n * \tImplements detector\n *\/\n\n\/*------------------------------ Library Includes ----------------------------*\/\n\n#include <Arduino.h>\n#include <IntervalTimer.h>\n\n\/*---------------------------- Function Definitions --------------------------*\/\n\nvoid count_falling_edges(void);\nvoid determine_frequency(void);\n\n\/*------------------------------ Pin Definitions -----------------------------*\/\n\n#define PIN_SIGNAL_IN              4\n#define PIN_SIGNAL_DETECTED_LED    0\n#define PIN_SIGNAL_DETECTED_OUTPUT 18\n\n\/*----------------------------- Global Variables -----------------------------*\/\n\nint count = 0;\n\nunsigned long rising_edge_start = 0;\nunsigned long time_high = 0;\nunsigned long avg_duty_cycle = 0;\nbool freq_detected = false;\nunsigned long reported_duty_cycle = 0;\n\nIntervalTimer frequencyTimer;\n\n\/*----------------------------------- Main -----------------------------------*\/\n\nvoid setup() {\n  Serial.begin(9600);\n\n  pinMode(PIN_SIGNAL_DETECTED_OUTPUT, OUTPUT);\n  pinMode(PIN_SIGNAL_DETECTED_LED, OUTPUT);\n  pinMode(PIN_SIGNAL_IN, INPUT);\n\n  frequencyTimer.begin(determine_frequency, 100000);\n  attachInterrupt(digitalPinToInterrupt(PIN_SIGNAL_IN), count_falling_edges, CHANGE);\n}\n\nvoid loop() {\n  digitalWrite(PIN_SIGNAL_DETECTED_LED, freq_detected);\n  digitalWrite(PIN_SIGNAL_DETECTED_OUTPUT, freq_detected);\n}\n\n\/\/ Counts edges by incrementing on each call\nvoid count_falling_edges(void) {\n  bool value = digitalRead(PIN_SIGNAL_IN);\n  if(value == 0) {\n    \/\/falling edge\n    count = count+1;\n    unsigned long curr_time = micros();\n    time_high = curr_time - rising_edge_start;\n    avg_duty_cycle = avg_duty_cycle + time_high;\n  }\n  else {\n    \/\/rising edge\n    rising_edge_start = micros();\n  }\n}\n\n\/\/ Calls Interrupt to Determine Number of Edges\nvoid determine_frequency(void) {\n  if (count >= 80 && count <= 200) {\n    freq_detected = true;\n    reported_duty_cycle = (100*avg_duty_cycle)\/100000;\n  } else {\n    freq_detected = false;\n  }\n  avg_duty_cycle = 0;\n  count = 0;\n}\n","highlight_active_line":false,"show_gutter":false,"display_indent_guides":false,"line_wrap":false,"use_soft_tabs":true,"max_lines":30,"min_lines":1});
+			_Element.prototype.settings.page_element_id = "835721750727859772";
+
+			_Element.prototype.element_id = "5027b1df-a8e8-42be-80b9-fa7470f34c8d";
+			_Element.prototype.user_id = "124764038";
+			_Element.prototype.site_id = "160568586123933431";
+			_Element.prototype.assets_path = "//marketplace.editmysite.com/elements/270170748587580171-1.3.3/assets/";
+			new _Element({
+				el: '#element-5027b1df-a8e8-42be-80b9-fa7470f34c8d'
+			});
+		});
+	});
+
+}
+
+if (typeof document.documentElement.appReady == 'undefined') {
+	document.documentElement.appReady = 0;
+}
+
+if (document.documentElement.appReady || (window.inEditor && window.inEditor())) {
+	setupElement835721750727859772();
+} else if (document.createEvent && document.addEventListener) {
+	document.addEventListener('appReady', setupElement835721750727859772, false);
+} else {
+	document.documentElement.attachEvent('onpropertychange', function(event){
+		if (event.propertyName == 'appReady') {
+			setupElement835721750727859772();
+		}
+	});
+}
+
+</script></div></div>
+
+
+					
+				</td>			</tr>
+		</tbody>
+	</table>
+</div></div></div>
+
+<div class="wsite-spacer" style="height:50px;"></div>
+
+<h2 class="wsite-content-title">Software Debugging Tips</h2>
+
+<div class="paragraph">Here are some common software writing tips and problems to keep in mind and look out for:<ul><li>Did you call out the function/variable?</li><li>Are the pins properly identified as output or input in the code?</li><li>Does your variable need to be a global variable?</li><li>Are the conditions clearly defined for what state to go to next?</li><li>Keep the FSM simple first and debug problems one at a time. Write your FSM state by state&nbsp;as well. Start off with two states&nbsp;and make sure the robot can do those two states perfectly before moving on and adding&nbsp;the next state. This makes it so much easier to determine where the bug is coming from rather than just writing the whole FSM at once.</li></ul><br /><br /></div>
+			</div>
+		</div>
+      </div>
+
+	</div>
+</div>
+
+</div>
+
+    </div>
+
+    <div class="footer-wrap">
+        <div class="footer">Create a <a target="_top" href="http://www.weebly.com/">free web site</a> with <a target="_top" href="http://www.weebly.com/" title="free web site">Weebly</a></div>
+    </div>
+  </div>
+
+  <div class="nav mobile-nav">
+    <label class="hamburger"><span></span></label>
+    <ul class="wsite-menu-default">
+    		<li id="pg770411695876406639" class="wsite-menu-item-wrap">
+    			<a
+    						href="index.html"
+    				class="wsite-menu-item"
+    				>
+    				Home
+    			</a>
+    			
+    		</li>
+    		<li id="pg407125507536001705" class="wsite-menu-item-wrap">
+    			<a
+    						href="strategy.html"
+    				class="wsite-menu-item"
+    				>
+    				Strategy
+    			</a>
+    			
+    		</li>
+    		<li id="pg102562441329504868" class="wsite-menu-item-wrap">
+    			<a
+    						href="mechanical-design.html"
+    				class="wsite-menu-item"
+    				>
+    				Mechanical Design
+    			</a>
+    			
+    		</li>
+    		<li id="pg870013093201913783" class="wsite-menu-item-wrap">
+    			<a
+    						href="electrical-design.html"
+    				class="wsite-menu-item"
+    				>
+    				Electrical Design
+    			</a>
+    			
+    		</li>
+    		<li id="active" class="wsite-menu-item-wrap">
+    			<a
+    						href="software-design.html"
+    				class="wsite-menu-item"
+    				>
+    				Software Design
+    			</a>
+    			
+    		</li>
+    		<li id="pg199209846630905410" class="wsite-menu-item-wrap">
+    			<a
+    						href="reflection.html"
+    				class="wsite-menu-item"
+    				>
+    				Reflection
+    			</a>
+    			
+    		</li>
+    </ul>
+  </div>
+
+  <script>
+    (function(d) {
+      var config = {
+        kitId: 'nxe1ajf',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
+
+	<script type="text/javascript" src="files/theme/plugins.js"></script>
+  <script type="text/javascript" src="files/theme/custom.js"></script>
+    <div id="customer-accounts-app"></div>
+    <script src="http://cdn2.editmysite.com/js/site/main-customer-accounts-site.js?buildTime=1234"></script>
+
+		
+	</body>
+</html>
